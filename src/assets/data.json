@@ -1,27 +1,33 @@
 [
     {
+      "id": 1,
       "title": "Tesla",
       "text": "Best company",
       "currentLikes": 7
     },
     {
+      "id": 2,
       "title": "VK",
       "text": "Messenger for children",
       "currentLikes": 2
     },
     {
+      "id": 3,
       "title": "Me",
       "text": "Best student",
       "currentLikes": 999
     },
     {
+      "id": 4,   
       "title": "Item",
       "text": "Some other item",
       "currentLikes": 0
     },
     {
+      "id": 5,  
       "title": "Real article",
       "text": "Real text for real article",
       "currentLikes": 11
     }
   ]
+  

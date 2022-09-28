@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 
 import Card from '../card'
 import './card-list.css'
@@ -7,8 +7,8 @@ const CardList = ({ data }) => {
 
     const mapping = (arr) => {
         return arr.map((item) => {
-            const { title, text, currentLikes } = item
-            return <Card title={title} text={text} currentLikes={currentLikes} />
+            const { id, title, text, currentLikes } = item
+            return <Card key={id} title={title} text={text} currentLikes={currentLikes}/>
         })
     }
 
