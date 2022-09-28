@@ -7,15 +7,20 @@ const Card = ({ title, text, currentLikes }) => {
     return (
         <div className='card'>
             <div className='header'>
-                <h1>{ title }</h1>
+                <span>{ title }</span>
             </div>
+
+            <div className='separator' />
 
             <div className='text'>
                 <span>{ text }</span>
             </div>
 
             <div className='likes'>
-                <h1>{ currentLikes }</h1>
+                <span className='number'>{ currentLikes }</span>
+                <h3 className='icon'>
+                    <i class="bi bi-heart"></i>
+                </h3>
             </div>
 
         </div>

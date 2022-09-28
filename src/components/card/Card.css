@@ -1,0 +1,56 @@
+.card {
+    margin: 30px;
+    background-color: rgba(121, 159, 241, 0.822);
+
+    border-radius: 10px;
+    border: 1px solid rgb(0, 0, 0);
+
+    width: 250px;
+    height: 250px;
+
+    overflow-wrap: break-word;
+
+    position: relative;
+
+    display: flex;
+
+}
+
+.card .header {
+    text-align: center;
+    font-size: 30px;
+
+    font-weight: bold;
+}
+
+.card .text {
+    margin: 10px;
+
+    font-size: 20px;
+}
+
+.card .likes {
+    display: flex;
+
+    margin-top: auto;
+    margin-left: auto;
+    margin-right: 10px;
+
+}
+
+.card .likes .icon {
+    margin-left: 15px;
+
+    position: relative;
+    top: 4px;
+}
+
+.card .likes .number {
+    font-size: 25px;
+}
+
+
+
+.card .separator {
+    border-top: 1px solid rgb(1,1,1)
+}

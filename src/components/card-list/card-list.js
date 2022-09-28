@@ -15,7 +15,7 @@ const CardList = ({ data }) => {
     const mapped_data = mapping(data)
 
     return (
-        <ul className='card=list'>{ mapped_data }</ul>
+        <ul className='card-list'>{ mapped_data }</ul>
     )
 }
 
