@@ -1,24 +1,23 @@
 import React, { useState } from 'react';
 
-import './Card.css'
+import './card.css'
 
 const Card = ({ title, text, currentLikes }) => {
 
-    const [is_liked, setLiked] = useState(false)
-    const [likes_count, setLikesCount] = useState(currentLikes)
+    const [isLiked, setLiked] = useState(false)
+    const [likesCount, setLikesCount] = useState(currentLikes)
 
     const onLikeClick = () => {
-        setLiked(!is_liked)
-        if (is_liked) {
-            setLikesCount(likes_count - 1)
-        } else {
-            setLikesCount(likes_count + 1)
-        }
+        setLiked(() => {
+            const countDelta = isLiked ? -1 : 1
+            setLikesCount(likesCount + countDelta)
+            return !isLiked
+        })
     }
 
-    let icon_class = "bi bi-heart"
-    if (is_liked) {
-        icon_class += "-fill"
+    let iconClass = "bi bi-heart"
+    if (isLiked) {
+        iconClass += "-fill"
     }
 
 
@@ -35,9 +34,9 @@ const Card = ({ title, text, currentLikes }) => {
             </div>
 
             <div className='likes'>
-                <span className='number'>{ likes_count }</span>
+                <span className='number'>{ likesCount }</span>
                 <h3 className='icon' onClick={ onLikeClick }>
-                    <i className={icon_class}></i>
+                    <i className={iconClass}></i>
                 </h3>
             </div>
 
