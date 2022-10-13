@@ -8,8 +8,8 @@ const CardList = ({ data }) => {
     return (
         <ul className='cardList'>{ 
             data.map((item) => {
-                const { id, title, text, currentLikes } = item
-                return <Card key={id} 
+                const { articleId, title, text, currentLikes } = item
+                return <Card key={articleId} 
                              title={title} 
                              text={text} 
                              currentLikes={currentLikes}/>
