@@ -1,19 +1,17 @@
 .card {
     margin: 30px;
-    background-color: rgba(121, 159, 241, 0.822);
-
-    border-radius: 10px;
-    border: 1px solid rgb(0, 0, 0);
 
     width: 250px;
-    height: 250px;
+    height: max-content;
+    background-color: rgba(0, 0, 0, 0);    
+    border: 1px solid rgba(0, 0, 0, 0);
+
 
     overflow-wrap: break-word;
 
     position: relative;
 
     display: flex;
-
 }
 
 .card .header {
@@ -23,31 +21,62 @@
     font-weight: bold;
 }
 
-.card .text {
+.card .mainBody {
+    background-color: rgba(121, 159, 241, 0.822);
+    border-radius: 10px;
+    border: 1px solid rgb(0, 0, 0);
+
+    min-height: 250px;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.card .mainBody .text {
     margin: 10px;
 
     font-size: 20px;
 }
 
-.card .likes {
+.card .mainBody .buttonsPanel {
     display: flex;
 
     margin-top: auto;
-    margin-left: auto;
     margin-right: 10px;
 }
 
-.card .likes .icon {
+.card .mainBody .buttonsPanel .likes {
+    display: flex;
+
+    margin-right: 10px;
+    margin-left: auto;
+}
+
+.card .mainBody .buttonsPanel .likes .likesIcon {
     margin-left: 15px;
 
     position: relative;
     top: 4px;
 }
 
-.card .likes .number {
+.card .mainBody .buttonsPanel .commentsIcon {
+    margin-left: 15px;
+
+    position: relative;
+}
+
+.card .mainBody .buttonsPanel .likes .number {
     font-size: 25px;
 }
 
 .card .separator {
     border-top: 1px solid rgb(1,1,1)
+}
+
+.card .comments {
+    padding: 0;
+}
+
+.card .invisible {
+    visibility: hidden;
 }

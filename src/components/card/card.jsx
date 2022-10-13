@@ -2,10 +2,13 @@ import React, { useState } from 'react';
 
 import './card.css'
 
-const Card = ({ title, text, currentLikes }) => {
+import Comment from '../comment'
+
+const Card = ({ title, text, currentLikes, comments }) => {
 
     const [isLiked, setLiked] = useState(false)
     const [likesCount, setLikesCount] = useState(currentLikes)
+    const [commentsVisible, setCommentsVisible] = useState(false)
 
     const onLikeClick = () => {
         setLiked(() => {
@@ -15,30 +18,61 @@ const Card = ({ title, text, currentLikes }) => {
         })
     }
 
-    let iconClass = "bi bi-heart"
+    const onCommentButtonClick = () => {
+        setCommentsVisible(!commentsVisible)
+    }
+
+    let likeIconClass = "bi bi-heart"
     if (isLiked) {
-        iconClass += "-fill"
+        likeIconClass += "-fill"
+    }
+
+    let commentsVisibleIconClass = "bi bi-caret"
+    let commentsClassname = "comments"
+    if(commentsVisible){
+        commentsVisibleIconClass += "-up"
+    } else {
+        commentsVisibleIconClass += "-down"
+        commentsClassname += " invisible"
     }
 
 
     return (
         <div className='card'>
-            <div className='header'>
-                <span>{ title }</span>
+            
+            <div className='mainBody'>
+                <div className='header'>
+                    <span>{ title }</span>
+                </div>
+
+                <div className='separator' />
+                <div className='text'>
+                    <span>{ text }</span>
+                </div>
+
+                <div className='buttonsPanel'>
+                    <h2 className='commentsIcon' onClick={ onCommentButtonClick }>
+                        <i className={ commentsVisibleIconClass } />
+                    </h2>
+
+                    <div className='likes'>
+                        <span className='number'>{ likesCount }</span>
+                        <h3 className='likesIcon' onClick={ onLikeClick }>
+                            <i className={likeIconClass}></i>
+                        </h3>
+                    </div>
+                </div>
+
             </div>
 
-            <div className='separator' />
-
-            <div className='text'>
-                <span>{ text }</span>
-            </div>
-
-            <div className='likes'>
-                <span className='number'>{ likesCount }</span>
-                <h3 className='icon' onClick={ onLikeClick }>
-                    <i className={iconClass}></i>
-                </h3>
-            </div>
+            <ul className={commentsClassname}>{ 
+                comments.map((item) => {
+                    const { id, author, text } = item
+                    return <Comment key={id} 
+                                    author={author} 
+                                    text={text}/>
+                }) 
+            }</ul>
 
         </div>
     )
